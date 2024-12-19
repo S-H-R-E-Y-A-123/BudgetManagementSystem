@@ -1,0 +1,63 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F0F8F0; /* Light Green background for the entire page */
+}
+
+/* Menu Bar */
+.menu-bar {
+    background-color: #4B8C29; /* Dark Green */
+    display: flex;
+    justify-content: space-evenly; /* Spread the items evenly */
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu-bar a {
+    color: #F0F8F0; /* Light Green Text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.menu-bar a:hover {
+    background-color: #3E6A21; /* Darker Green on hover */
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+    margin-top: 80px; /* To offset the fixed menu bar */
+}
+
+.dashboard-content h1 {
+    font-size: 60px;
+    color: #4B8C29; /* Olive Green */
+    margin-bottom: 20px;
+}
+
+.dashboard-content .description {
+    font-size: 20px;
+    color: #3E6A21; /* Darker Olive Green */
+    max-width: 700px;
+    text-align: center;
+    margin-top: 10px;
+}

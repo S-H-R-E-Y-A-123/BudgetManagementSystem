@@ -1,0 +1,107 @@
+/* Expenditure Page CSS */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+nav.navbar {
+    background-color: #388e3c;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+
+nav.navbar a {
+    color: #a5d6a7;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 10px;
+}
+
+nav.navbar a:hover {
+    background-color: #66bb6a;
+    border-radius: 5px;
+}
+
+.content-section {
+    text-align: center;
+    padding: 30px;
+    background-color: #a5d6a7;
+    border-radius: 10px;
+    margin: 60px 20px 20px 20px; /* Increased margin-top to move content down */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    color: #388e3c;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+input, select, button {
+    padding: 12px;
+    font-size: 16px;
+    width: 350px; /* Increased width */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #388e3c;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2c6c2f;
+}
+
+table {
+    width: 90%; /* Increased table width */
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+table th {
+    background-color: #388e3c;
+    color: white;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+table button:hover {
+    background-color: #e53935;
+}

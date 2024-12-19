@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenditures - BudgetWise</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/expenditures.css') }}">
+    <script src="{{ url_for('static', filename='js/expenditures.js') }}"></script>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('expenditures') }}">Expenditures</a>
+        <a href="{{ url_for('income') }}">Income</a>
+        <a href="{{ url_for('goals') }}">Goals Progress</a>
+        <a href="{{ url_for('wishlist') }}">Wishlist</a>
+        <a href="{{ url_for('chats') }}">Chats</a>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <h2>Manage Your Expenditures</h2>
+
+        <!-- Expense Form -->
+        <form id="expense-form" method="post" action="{{ url_for('expenditures') }}">
+            <input type="text" id="expense-name" name="description" placeholder="Expense Name" required>
+            <input type="number" id="expense-amount" name="amount" placeholder="Amount" required>
+            <select id="expense-category" name="category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Utilities">Utilities</option>
+            </select>
+            <button type="submit">Add Expense</button>
+        </form>
+
+        <!-- Expenditures Table -->
+        <table id="expenses-table">
+            <thead>
+                <tr>
+                    <th>Expense Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenditures %}
+                <tr>
+                    <td>{{ expense.description }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.category }}</td>
+                    <td>
+                        <button onclick="deleteExpense({{ expense.id }})">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

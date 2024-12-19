@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BudgetWise</title>
+    <!-- Link to Dashboard CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <a href="{{ url_for('expenditures') }}">Expenditures</a>
+        <a href="{{ url_for('income') }}">Income</a>
+        <a href="{{ url_for('goals') }}">Goals Progress</a>
+        <a href="{{ url_for('wishlist') }}">Wishlist</a>
+        <a href="{{ url_for('chats') }}">Chats</a>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <h1>BudgetWise</h1>
+        <p class="description">
+            BudgetWise helps you track your finances, set goals, and stay organized with your income and expenses.
+        </p>
+        
+        <!-- Dynamic Welcome Message -->
+        <h2>Welcome, {{ user_name }}!</h2>
+        <p>Here is an overview of your budget management resources.</p>
+    </div>
+</body>
+</html>

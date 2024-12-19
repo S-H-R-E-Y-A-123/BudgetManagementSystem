@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist - BudgetWise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/wishlist.css') }}">
+</head>
+<body>
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('income') }}">Income</a>
+    <a href="{{ url_for('goals') }}">Goals Progress</a>
+    <a href="{{ url_for('wishlist') }}">Wishlist</a>
+    <a href="{{ url_for('chats') }}">Chats</a>
+  </div>
+
+  <div class="content">
+    <h2>Wishlist</h2>
+    <form id="wishlist-form" method="post" action="{{ url_for('add_wishlist_item') }}">
+      <label for="newItem">Add an item to your wishlist:</label>
+      <input type="text" id="newItem" name="newItem" placeholder="Wishlist item" required>
+      <button type="submit">Add Item</button>
+    </form>
+
+    <section id="wishlist-section">
+      <ul id="wishlist">
+        <!-- Wishlist items will be populated here -->
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // Fetch and display the wishlist items on page load
+    async function fetchWishlist() {
+      const response = await fetch("{{ url_for('get_wishlist') }}");
+      const wishlistData = await response.json();
+      const wishlistContainer = document.getElementById('wishlist');
+
+      wishlistContainer.innerHTML = ''; // Clear the list before adding items
+
+      wishlistData.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item.name; // Assumes `name` is the property for item names
+        wishlistContainer.appendChild(listItem);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchWishlist);
+  </script>
+
+  <!-- Link to JavaScript file -->
+  <script src="{{ url_for('static', filename='js/wishlist.js') }}"></script>
+</body>
+</html>

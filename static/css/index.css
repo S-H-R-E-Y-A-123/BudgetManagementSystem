@@ -1,0 +1,81 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d1e7d6; /* Even more muted pastel green background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.login-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #f0f8f0; /* Light color for the heading */
+}
+
+.toggle-btns {
+    margin-bottom: 20px;
+}
+
+.toggle-btns button {
+    background-color: transparent;
+    border: 2px solid lightgreen;
+    color: lightgreen;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.toggle-btns button:hover {
+    background-color: lightgreen;
+    color: #333;
+}
+
+.toggle-btns button.active {
+    background-color: lightgreen;
+    color: #333;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+    background-color: #444;
+    color: lightgreen;
+}
+
+button {
+    background-color: lightgreen;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #388e3c;
+}

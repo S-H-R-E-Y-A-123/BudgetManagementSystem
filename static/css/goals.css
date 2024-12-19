@@ -1,0 +1,90 @@
+/* Menu Bar */
+.menu-bar {
+    background-color: #4B8C29; /* Dark Green */
+    display: flex;
+    justify-content: space-evenly; /* Spread the items evenly */
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu-bar a {
+    color: #F0F8F0; /* Light Green Text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+    font-family: Arial, sans-serif; /* Set font family to match other pages */
+}
+
+.menu-bar a:hover {
+    background-color: #3E6A21; /* Darker Green on hover */
+}
+
+/* Goals Progress Page Styling */
+body {
+    padding-top: 70px; /* Add space for the fixed menu */
+    font-family: Arial, sans-serif; /* Set consistent font for the entire page */
+    margin: 0;
+}
+
+/* Content and Form Styling */
+.content {
+    padding: 20px;
+    font-family: Arial, sans-serif; /* Set consistent font for the entire page */
+}
+
+h2 {
+    font-size: 30px;
+    color: #4B8C29; /* Green heading */
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input[type="number"],
+input[type="date"],
+button {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4B8C29;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3E6A21;
+}
+
+/* Chart Container */
+.chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100% !important;
+    height: 400px;
+}
+
+/* Add any additional styling for specific sections */

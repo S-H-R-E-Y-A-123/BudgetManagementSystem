@@ -1,0 +1,121 @@
+/* Menu Bar */
+.menu-bar {
+    background-color: #4B8C29; /* Dark Green */
+    display: flex;
+    justify-content: space-evenly; /* Spread the items evenly */
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu-bar a {
+    color: #F0F8F0; /* Light Green Text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.menu-bar a:hover {
+    background-color: #3E6A21; /* Darker Green on hover */
+}
+
+/* Chat Container Styling */
+body {
+    padding-top: 70px; /* Add space for the fixed menu */
+    font-family: Arial, sans-serif;
+}
+
+/* Chat Layout */
+.chat-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.user-list {
+    width: 25%;
+    border-right: 2px solid #ccc;
+    padding-right: 20px;
+}
+
+.user-list h2 {
+    font-size: 24px;
+    color: #4B8C29; /* Green heading */
+    margin-bottom: 20px;
+}
+
+#user-list {
+    list-style: none;
+    padding: 0;
+}
+
+#user-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#user-list li:hover {
+    background-color: #e0e0e0;
+}
+
+.chat-box {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#chat-header {
+    font-size: 24px;
+    color: #4B8C29; /* Green heading */
+    margin-bottom: 20px;
+}
+
+#chat-window {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#message-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#message-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4B8C29; /* Dark Green */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3E6A21; /* Darker Green */
+}

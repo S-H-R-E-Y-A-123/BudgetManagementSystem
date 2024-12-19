@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goals Progress - BudgetWise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/goals.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('expenditures') }}">Expenditures</a>
+    <a href="{{ url_for('income') }}">Income</a>
+    <a href="{{ url_for('goals') }}">Goals Progress</a>
+    <a href="{{ url_for('wishlist') }}">Wishlist</a>
+    <a href="{{ url_for('chats') }}">Chats</a>
+  </div>
+
+  <div class="content">
+    <h2>Goals Progress</h2>
+    <form id="goal-form" method="post" action="{{ url_for('add_goal') }}">
+      <label for="targetAmount">Target Amount (₹):</label>
+      <input type="number" id="targetAmount" name="targetAmount" step="0.01" required>
+
+      <label for="currentAmount">Current Amount (₹):</label>
+      <input type="number" id="currentAmount" name="currentAmount" step="0.01" required>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" required>
+
+      <label for="dueDate">Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required>
+
+      <button type="submit">Add Goal</button>
+    </form>
+
+    <div class="chart-container">
+      <canvas id="goalChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to initialize the Chart.js and display goals
+    const ctx = document.getElementById('goalChart').getContext('2d');
+    let goalChart;
+
+    function loadGoalChart(goalsData) {
+      const labels = goalsData.map(goal => goal.target_date);
+      const data = goalsData.map(goal => goal.current_amount);
+
+      if (goalChart) goalChart.destroy(); // Reset chart if it exists
+
+      goalChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Goals Progress (₹)',
+            data: data,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2,
+            fill: false
+          }]
+        },
+        options: {
+          scales: {
+            x: { title: { display: true, text: 'Date' } },
+            y: { title: { display: true, text: 'Amount (₹)' } }
+          }
+        }
+      });
+    }
+
+    // Fetch and display the goals on page load
+    async function fetchGoals() {
+      const response = await fetch("{{ url_for('get_goals') }}");
+      const goalsData = await response.json();
+      loadGoalChart(goalsData);
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchGoals);
+  </script>
+
+  <!-- Link to JavaScript file -->
+  <script src="{{ url_for('static', filename='js/goals.js') }}"></script>
+</body>
+</html>

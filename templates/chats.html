@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - BudgetWise</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chats.css') }}">
+</head>
+<body>
+
+  <!-- Menu Bar -->
+  <div class="menu-bar">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('income') }}">Income</a>
+    <a href="{{ url_for('goals') }}">Goals Progress</a>
+    <a href="{{ url_for('wishlist') }}">Wishlist</a>
+    <a href="{{ url_for('chats') }}">Chats</a>
+  </div>
+
+  <div class="chat-container">
+    <div class="user-list">
+      <h2>Users</h2>
+      <ul id="user-list">
+        <!-- Assuming you pass a list of users from Flask to display in the chat -->
+        {% for user in users %}
+        <li onclick="selectUser('{{ user.id }}', '{{ user.name }}')">{{ user.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="chat-box">
+      <h2 id="chat-header">Select a user to start chatting</h2>
+      <div id="chat-window" class="chat-window">
+        <!-- Chat messages will appear here -->
+      </div>
+
+      <form id="message-form" method="post" action="{{ url_for('send_message') }}">
+        <textarea id="message-input" name="message" placeholder="Type a message..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='chats.js') }}"></script>
+</body>
+</html>

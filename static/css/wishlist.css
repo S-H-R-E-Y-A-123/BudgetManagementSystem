@@ -1,0 +1,95 @@
+/* Menu Bar */
+.menu-bar {
+    background-color: #4B8C29; /* Dark Green */
+    display: flex;
+    justify-content: space-evenly; /* Spread the items evenly */
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menu-bar a {
+    color: #F0F8F0; /* Light Green Text */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.menu-bar a:hover {
+    background-color: #3E6A21; /* Darker Green on hover */
+}
+
+/* Wishlist Page Content Styling */
+body {
+    padding-top: 70px; /* Add space for the fixed menu */
+    font-family: Arial, sans-serif;
+}
+
+header h1 {
+    font-size: 32px;
+    text-align: center;
+    color: #4B8C29; /* Green color for the heading */
+}
+
+#wishlist-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#new-item-input {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#add-item-btn {
+    background-color: #4B8C29; /* Dark Green */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#add-item-btn:hover {
+    background-color: #3E6A21; /* Darker Green */
+}
+
+#wishlist {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#wishlist li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#wishlist li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#wishlist li button:hover {
+    background-color: #e60000;
+}

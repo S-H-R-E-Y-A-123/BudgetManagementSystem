@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income - BudgetWise</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/income.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-items">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('expenditures') }}">Expenditures</a>
+            <a href="{{ url_for('income') }}">Income</a>
+            <a href="{{ url_for('goals') }}">Goals Progress</a>
+            <a href="{{ url_for('wishlist') }}">Wishlist</a>
+            <a href="{{ url_for('chats') }}">Chat</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>BudgetWise - Income Selection</h1>
+
+        <!-- Income Slider Section -->
+        <form id="income-form" method="post" action="{{ url_for('add_income') }}">
+            <div class="income-slider-section">
+                <label for="incomeSlider" class="label">Select Your Monthly Income:</label>
+                <input type="range" id="incomeSlider" name="income_amount" min="0" max="1000000" step="5000" value="0">
+                <p id="incomeValue">₹0K</p>
+                <button type="submit" id="finalizeIncomeBtn">Finalize Income</button>
+            </div>
+        </form>
+
+        <!-- Final Income Display -->
+        <div id="finalIncomeDisplay" class="final-income hidden">
+            <h2>Your Finalized Income:</h2>
+            <p id="finalIncome">₹0K</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to display slider value dynamically
+        const incomeSlider = document.getElementById('incomeSlider');
+        const incomeValue = document.getElementById('incomeValue');
+        const finalIncomeDisplay = document.getElementById('finalIncomeDisplay');
+        const finalIncome = document.getElementById('finalIncome');
+
+        incomeSlider.addEventListener('input', () => {
+            incomeValue.textContent = `₹${(incomeSlider.value / 1000).toFixed(1)}K`;
+        });
+
+        document.getElementById('income-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const income = incomeSlider.value;
+            finalIncome.textContent = `₹${(income / 1000).toFixed(1)}K`;
+            finalIncomeDisplay.classList.remove('hidden');
+        });
+    </script>
+
+    <!-- Link to JavaScript file -->
+    <script src="{{ url_for('static', filename='js/income.js') }}"></script>
+</body>
+</html>
